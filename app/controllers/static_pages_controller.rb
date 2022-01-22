@@ -16,4 +16,8 @@ class StaticPagesController < ApplicationController
     render 'host'
   end
   
+  def patron
+    render 'patron'
+  end
+  
 end
