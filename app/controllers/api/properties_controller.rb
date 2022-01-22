@@ -13,5 +13,23 @@ module Api
     
             render 'api/properties/show', status: :ok
         end
+
+        def create 
+            token = cookies.signed[:airbnb_session_token]
+            sessions = Session.find_by(token: token)
+
+            if session
+                user = session.user
+                @property = user.properties.new(property_params)
+                
+                if @property.save
+                    render 'api/properties/create'
+                else
+                    render json: { success: false }
+                end
+            else 
+                render json: { success: false }
+            end
+        end
     end
 end

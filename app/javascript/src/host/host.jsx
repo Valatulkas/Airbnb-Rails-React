@@ -60,6 +60,8 @@ class Host extends React.Component {
             )
         }
 
+        // model edit and add widgets off login and signup widgets from login.jsx
+        
         return (
             <Layout>
                 <div className="container">
@@ -67,7 +69,10 @@ class Host extends React.Component {
                         <div className="info col-12">
                             <div className="border p-4 mb-4">
                                 Please <a href={`/login?redirect_url=${window.location.pathname}`}>log in</a> to start.
+
+                            
                             </div>
+                            
                         </div>
                     </div>
                 </div>
