@@ -9,6 +9,7 @@ const Layout = (props) => {
           <ul className="navbar-nav">
             <li className="nav-item">
               <a className="nav-link" href="/">Home</a>
+              <a className='nav-link' href='/host'>Hosting</a>
             </li>
           </ul>
         </div>
