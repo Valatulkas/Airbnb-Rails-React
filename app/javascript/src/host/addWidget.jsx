@@ -36,11 +36,12 @@ class AddWidget extends React.Component {
         const { property } = this.state;
 
         return (
-            <div className="border p-4 mb-3">
-                <form onSubmit={this.addBooking}>
+            <React.Fragment>
+                 <form onSubmit={this.addBooking}>
                     <h2>fill er in!</h2>
                 </form>
-            </div>
+                <p className="mb-0">Want to <a className="text-primary" onClick={this.props.toggle}>edit</a> a property instead?</p>
+            </React.Fragment>
         )
     }
 }
