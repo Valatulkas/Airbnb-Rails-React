@@ -1,14 +1,13 @@
 import React from "react";
-import reactDom from "react-dom";
 import Layout from "../layout";
 import EditWidget from "./editWidget";
+import AddWidget from "./addWidget";
 import { handleErrors, safeCredentials } from '@utils/fetchHelper';
 
 class Host extends React.Component {
     state = {
         authenticated: false,
-        newProperty: {},
-        loading: true,
+        show_add: true,
     }
 
     componentDidMount() {
@@ -21,29 +20,14 @@ class Host extends React.Component {
         })
     }
 
-    submitProperty = (e) => {
-        if (e) {e.preventDefault(); }
-        const { newProperty } = this.state;
-
-        fetch(`api/properties`, safeCredentials({
-            method: 'POST',
-            body: JSON.stringify({
-                property : {
-                    // fill criteria in
-                }
-            })
-        }))
-            .then(handleErrors)
-            .then(response => {
-                console.log(response);
-            })
-            .catch(error => {
-                console.log(error);
-            })
+    toggle = () => {
+        this.setState({
+            show_add: !this.state.show_add,
+        })
     }
 
     render () {
-        const { authenticated } = this.state;
+        const { authenticated, show_add } = this.state;
 
         if (!authenticated) {
             return (
@@ -69,11 +53,8 @@ class Host extends React.Component {
                     <div className="row">
                         <div className="info col-12">
                             <div className="border p-4 mb-4">
-                                Please <a href={`/login?redirect_url=${window.location.pathname}`}>log in</a> to start.
-
-                            
+                                {show_add ? <AddWidget toggle={this.toggle} /> : <EditWidget toggle={this.toggle} />}
                             </div>
-                            
                         </div>
                     </div>
                 </div>

@@ -3,8 +3,7 @@ import { safeCredentials, handleErrors } from '@utils/fetchHelper';
 
 class EditWidget extends React.Component {
     state = {
-        property = {},
-        loading: true,
+        property: {},
     }
 
     handleChange = (e) => {
@@ -20,7 +19,7 @@ class EditWidget extends React.Component {
             method: 'PUT',
             body: JSON.stringify({
                 property: {
-                    //fill er in
+                    // fill er in
                 }
             })
         }))
@@ -46,5 +45,4 @@ class EditWidget extends React.Component {
     }
 }
 
-export default EditWidget
-
+export default EditWidget;
