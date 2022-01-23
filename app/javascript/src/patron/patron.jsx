@@ -30,7 +30,7 @@ class Patron extends React.Component {
                         <div className="row">
                             <div className="info col-12">
                                 <div className="border p-4 mb-4">
-                                    Please <a href={`/login?redirect_url=${window.location.pathname}`}>log in</a> to start hosting.
+                                    Please <a href={`/login?redirect_url=${window.location.pathname}`}>log in</a> to manage bookings.
                                 </div>
                             </div>
                         </div>

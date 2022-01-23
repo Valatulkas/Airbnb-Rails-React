@@ -1,6 +1,7 @@
 import React from "react";
 import reactDom from "react-dom";
 import Layout from "../layout";
+import EditWidget from "./editWidget";
 import { handleErrors, safeCredentials } from '@utils/fetchHelper';
 
 class Host extends React.Component {
