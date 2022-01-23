@@ -7,9 +7,13 @@ const Layout = (props) => {
         <a href="/"><span className="navbar-brand mb-0 h1 text-danger">Airbnb</span></a>
         <div className="collapse navbar-collapse">
           <ul className="navbar-nav">
-            <li className="nav-item">
+            <li className="nav-item ml-4">
               <a className="nav-link" href="/">Home</a>
+            </li>
+            <li className="nav-item ml-4">
               <a className='nav-link' href='/host'>Hosting</a>
+            </li>
+            <li className="nav-item ml-4">
               <a className='nav-link' href='/patron'>My Trips</a>
             </li>
           </ul>
