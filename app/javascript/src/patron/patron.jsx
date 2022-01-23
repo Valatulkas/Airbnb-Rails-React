@@ -5,7 +5,9 @@ import { handleErrors, safeCredentials } from '@utils/fetchHelper';
 
 class Patron extends React.Component {
     state = {
+        bookings: [],
         authenticated: false,
+        loading: true,
     }
 
     componentDidMount() {
@@ -16,12 +18,25 @@ class Patron extends React.Component {
             authenticated: data.authenticated,
             })
         })
+        this.fetchProperties();
+    }
+
+    fetchProperties = () => {
+        fetch(`api/bookings/${this.props.username}`)
+            .then(handleErrors)
+            .then(data => {
+                console.log(data)
+                this.setState({
+                    properties: data.properties,
+                    loading: false,
+                })
+            })
     }
 
     // build out indexing of booking per user
 
     render () {
-        const { authenticated } = this.state;
+        const { authenticated, loading, bookings } = this.state;
 
         if (!authenticated) {
             return (
@@ -38,17 +53,23 @@ class Patron extends React.Component {
                 </Layout>
             )
         }
+
+        if (loading) {
+            return <p>Loading ...</p>
+        }
+
         return (
             <Layout>
                 <div className="container">
                     <div className="row">
-                        <div className="info col-12">
-                            <div className="border p-4 mb-4">
-                                Please <a href={`/login?redirect_url=${window.location.pathname}`}>log in</a> to start.
-
-                            
-                            </div>
-                            
+                        <div className="col-12">
+                            {bookings.map(booking => {
+                                return (
+                                    <div key={booking.id} className="booking">
+                                        <div>{booking.start_date}</div>
+                                    </div>
+                                )
+                            })}
                         </div>
                     </div>
                 </div>

@@ -23,6 +23,16 @@ module Api
         @bookings = property.bookings.where("end_date > ? ", Date.today)
         render 'api/bookings/index'
       end
+
+      def index_by_user
+        user = User.find_by(username: params[:username])
+        if session
+          @bookings = user.bookings
+          render 'api/bookings/index'
+        else
+          render json: { bookngs: [] }
+        end
+      end
   
       private
   

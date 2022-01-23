@@ -32,5 +32,16 @@ module Api
             @property = Property.find_by(id: params[:id])
             render 'api/properties/show', status: :ok
         end
+
+        def index_by_user 
+            user = User.find_by(username: params[:username])
+            if session 
+                @properties = user.properties
+                render 'api/properties/index'
+            else
+                render json: { properties: [] }
+            end
+        end
+        
     end
 end
