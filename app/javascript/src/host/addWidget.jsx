@@ -60,6 +60,7 @@ class AddWidget extends React.Component {
                     <input name='beds' className="form-control form-control-lg mb-3" type='number' placeholder="Beds" value={beds} onChange={this.handleChange} required />
                     <input name='baths' className="form-control form-control-lg mb-3" type='number' placeholder="Baths" value={baths} onChange={this.handleChange} required />
                     <input name='image_url' className="form-control form-control-lg mb-3" type='text' placeholder="Image URL" value={image_url} onChange={this.handleChange} required />
+                    <button type="submit" className="btn btn-danger btn-block btn-lg">Share your spot!</button>
                     <h2>fill er in!</h2>
                 </form>
                 <p className="mb-0">Want to <a className="text-primary" onClick={this.props.toggle}>edit</a> a property instead?</p>
