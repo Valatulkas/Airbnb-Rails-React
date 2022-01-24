@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :sessions, only: [:create, :destroy]
     resources :properties, only: [:index, :show, :create, :edit, :index_by_user]
     resources :bookings, only: [:create, :index_by_user]
+    resources :charges, only: [:create]
 
     get '/properties/:id/bookings' => 'bookings#get_property_bookings'
     get '/authenticated' => 'sessions#authenticated'
