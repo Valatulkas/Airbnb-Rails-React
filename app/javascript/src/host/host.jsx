@@ -3,6 +3,7 @@ import Layout from "../layout";
 import EditWidget from "./editWidget";
 import AddWidget from "./addWidget";
 import { handleErrors, safeCredentials } from '@utils/fetchHelper';
+import './host.scss'
 
 class Host extends React.Component {
     state = {

@@ -1,7 +1,7 @@
 import React from "react";
-import reactDom from "react-dom";
 import Layout from "../layout";
 import { handleErrors, safeCredentials } from '@utils/fetchHelper';
+import './patron.scss';
 
 class Patron extends React.Component {
     state = {

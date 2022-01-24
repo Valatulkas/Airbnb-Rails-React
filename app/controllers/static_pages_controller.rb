@@ -19,5 +19,9 @@ class StaticPagesController < ApplicationController
   def patron
     render 'patron'
   end
+
+  def success
+    render 'success'
+  end
   
 end

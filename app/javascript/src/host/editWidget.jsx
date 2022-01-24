@@ -1,5 +1,6 @@
 import React from "react";
 import { safeCredentials, handleErrors } from '@utils/fetchHelper';
+import './host.scss';
 
 class EditWidget extends React.Component {
     state = {

@@ -1,14 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Layout from '../layout';
-import BookingWidget from './bookingWidget';
-import { handleErrors } from '@utils/fetchHelper';
-import './property.scss';
+import React from "react";
+import Layout from "../layout";
+import './success.scss';
 
-class Property extends React.Component {
+class Success extends React.Component {
     state = {
         property: {},
         loading: true,
+        user: '',
     }
 
     componentDidMount() {
@@ -23,15 +21,14 @@ class Property extends React.Component {
     }
 
     render () {
-        const { property, loading } = this.state;
+        const { property, loading, user } = this.state;
 
         if (loading) {
             return <p>Loading ...</p>
         }
+        const { id, title, description, city, country, property_type, price_per_night, max_guests, bedrooms, beds, baths, image_url, user, } = property;
 
-        const { id, title, description, city, country, property_type, price_per_night, max_guests, bedrooms, beds, baths, image_url, user, } = property
-
-        return  (
+        return (
             <Layout>
                 <div className="property-image mb-3" style={{ backgroundImage: `url(${image_url})` }} />
                 <div className="container">
@@ -55,7 +52,9 @@ class Property extends React.Component {
                             <p>{description}</p>
                         </div>
                         <div className='col-12 col-lg-5'>
-                            <BookingWidget property_id={id} price_per_night={price_per_night} />
+                            <div className="border">
+                                <h3>Congratulations {user}! You're stay at {title} is confirmed!</h3>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -64,4 +63,4 @@ class Property extends React.Component {
     }
 }
 
-export default Property
+export default Success;
