@@ -10,6 +10,12 @@ module Api
       end
     end
 
+    def index_properties
+      @properties = Property.order(created_at: :desc)
+      return render json: { error: 'not_found' }, status: :not_found if !@properties
+      render 'api/properties/index', status: :ok
+    end
+
     private
 
     def user_params
