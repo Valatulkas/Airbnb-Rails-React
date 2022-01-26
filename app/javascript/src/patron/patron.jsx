@@ -43,7 +43,7 @@ class Patron extends React.Component {
                 <Layout>
                     <div className="container">
                         <div className="row">
-                            <div className="info col-12">
+                            <div className="info col-12 col-md-9 col-lg-6 mx-auto my-4">
                                 <div className="border p-4 mb-4">
                                     Please <a href={`/login?redirect_url=${window.location.pathname}`}>log in</a> to manage bookings.
                                 </div>
@@ -62,7 +62,7 @@ class Patron extends React.Component {
             <Layout>
                 <div className="container">
                     <div className="row">
-                        <div className="col-12">
+                        <div className="col-12 col-md-9 col-lg-6 mx-auto my-4">
                             {bookings.map(booking => {
                                 return (
                                     <div key={booking.id} className="booking">

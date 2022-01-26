@@ -1,4 +1,5 @@
 import React from 'react';
+import './home.scss';
 
 const Layout = (props) => {
   return (
