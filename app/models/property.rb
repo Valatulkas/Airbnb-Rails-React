@@ -1,5 +1,6 @@
 class Property < ApplicationRecord
     belongs_to :user
+    has_one_attached :image
     has_many :bookings
   
     validates :title, presence: true, length: { maximum: 70 }
