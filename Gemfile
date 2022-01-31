@@ -17,6 +17,7 @@ gem 'webpacker', '~> 5.x'
 # gem 'mini_racer', platforms: :ruby
 gem 'kaminari'
 gem 'stripe'
+gem 'aws-sdk', '~> 3.0'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 5.0'

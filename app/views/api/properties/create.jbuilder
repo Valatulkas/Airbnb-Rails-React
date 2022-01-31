@@ -10,10 +10,13 @@ json.properties do |property|
     json.bedrooms @property.bedrooms
     json.beds @property.beds
     json.baths @property.baths
-    json.image url_for(@property.image)
+    json.image_url @property.image_url
   
     json.user do
       json.id @property.user.id
       json.username @property.user.username
     end
 end
+
+# troubleshoot image connectivity
+# json.iamge url_for(property.image)

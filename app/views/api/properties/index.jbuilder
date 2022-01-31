@@ -9,6 +9,9 @@ json.properties do
     json.country property.country
     json.property_type property.property_type
     json.price_per_night property.price_per_night
-    json.iamge url_for(property.image)
+    json.image_url property.image_url
   end
 end
+
+# troubleshoot image connectivity
+# json.iamge url_for(property.image)
